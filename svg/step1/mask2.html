@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .theSvg{
+      position: absolute;
+      left:0;
+      top:0;
+      right:0;
+      bottom:0;
+      width: 100%;
+      height: 100%;
+      background:#ddd;
+    }
+    .text{
+      font-size:80px;
+    }
+
+
+  </style>
+</head>
+<body>
+  <svg class="theSvg">
+    <defs>
+      <pattern id="lion-bg" x="0" y="0" width="0.2" height="0.2">
+        <circle class="ears" r="20" cx="60" cy="70" fill="#d6982a" stroke="#060202" stroke-width="4" />
+        <circle class="ears" r="20" cx="140" cy="70" fill="#d6982a" stroke="#060202" stroke-width="4" />
+        
+        <circle r="70" cx="100" cy="120" stroke="#060202" stroke-width="4" fill="#d6982a"/>
+        <rect width="35" height="5" rx="3" ry="3" fill="#060202" x="50" y="100" stroke-width="5" />
+        <rect width="35" height="5" rx="3" ry="3" fill="#060202" x="110" y="100" stroke-width="5" />
+        <circle class="eyes1" r="6" cx="68" cy="119" fill="#060202"/>
+        <circle class="eyes2" r="6" cx="128" cy="119" fill="#060202"/>
+        
+        <rect class="nose" width="20" height="20" x="79" y="133" rx="30" ry="20" stroke="#060202" stroke-width="4" fill="#fff"/>
+        <rect class="nose" width="20" height="20" x="98" y="133" rx="30" ry="20" stroke="#060202" stroke-width="4" fill="#fff"/>
+        <rect width="10" height="10" x="162" y="29" fill="#fff" transform="rotate(45)"/>
+        <rect width="10" height="10" x="169" y="22" fill="#fff" transform="rotate(45)"/>
+        <rect class="nose" width="15" height="15" x="91" y="128" rx="30" ry="20" fill="#060202"/>
+      </pattern>
+
+      <mask id="showMask">
+        <path style="fill:#fff;" d="M390,200c0,41.58-13.43,80.09-36.18,111.41c-11.81,16.27-26.14,30.6-42.41,42.41
+        C280.09,376.57,241.58,390,200,390C95.23,390,10,304.77,10,200S95.23,10,200,10S390,95.23,390,200z" />
+      </mask>
+      
+      <style>
+        @keyframes eyeAni{
+          to{
+            transform : scaleY(0.2);
+          }
+        } 
+        .eyes1{
+          transform-origin: 68px 119px;
+          animation :eyeAni 0.5s alternate infinite;
+        }
+        .eyes2{
+          transform-origin: 128px 119px;
+          animation :eyeAni 0.5s alternate infinite;
+        }
+        .bg {
+          fill:url(#lion-bg)
+        }
+
+      </style>
+        
+      <script>
+        window.addEventListener('DOMContentLoaded',()=>{
+          const magnifier = document.querySelector('.magnifier');
+          const mask = document.querySelector('#showMask path');
+
+          window.addEventListener('mousemove',(e)=>{
+
+            magnifier.style.transform = `translate(${e.clientX -250}px, ${e.clientY-250}px)`
+            mask.style.transform = `translate(${e.clientX-250}px, ${e.clientY-250}px)`
+          })
+
+        })
+
+        
+      </script>
+    </defs>
+
+    <!-- bg영역 -->
+    <g mask="url(#showMask)">
+      <rect class="bg" x="0" y="0" width="100%" height="100%" />
+    </g>
+
+    <!-- 돋보기 -->
+    <g class="magnifier">
+      <path style="fill:#4DBBEB;" d="M493.21,450.79c11.72,11.71,11.72,30.71,0,42.42c-5.86,5.86-13.53,8.79-21.21,8.79
+      s-15.35-2.93-21.21-8.79l-96.57-96.57c15.77-12.4,30.02-26.65,42.42-42.42L493.21,450.79z" />
+      <path style="fill:#FFF5CD;" d="M353.83,311.41l42.81,42.81c-12.4,15.77-26.65,30.02-42.42,42.42l-42.81-42.81v-0.01
+      c16.27-11.81,30.6-26.14,42.41-42.41H353.83z" />
+      <path d="M500.281,443.719l-133.48-133.48C388.546,277.485,400,239.555,400,200C400,89.72,310.28,0,200,0S0,89.72,0,200
+      s89.72,200,200,200c39.556,0,77.486-11.455,110.239-33.198l36.895,36.895c0.005,0.005,0.01,0.01,0.016,0.016l96.568,96.568
+      C451.276,507.838,461.319,512,472,512s20.724-4.162,28.278-11.716C507.837,492.731,512,482.687,512,472
+      S507.837,451.269,500.281,443.719z M326.516,354.793c10.35-8.467,19.811-17.928,28.277-28.277l28.371,28.371
+      c-8.628,10.183-18.094,19.65-28.277,28.277L326.516,354.793z M20,200c0-99.252,80.748-180,180-180s180,80.748,180,180
+      c0,38.175-11.851,74.667-34.272,105.535c-11.217,15.453-24.739,28.976-40.192,40.192c0,0.001-0.001,0.001-0.002,0.002
+      C274.667,368.149,238.175,380,200,380C100.748,380,20,299.252,20,200z M486.139,486.139c-3.78,3.78-8.801,5.861-14.139,5.861
+      s-10.359-2.081-14.139-5.861l-88.795-88.795c10.127-8.691,19.587-18.15,28.277-28.277l88.798,88.798
+      C489.919,461.639,492,466.658,492,472S489.919,482.361,486.139,486.139z" />
+    </g>
+
+
+
+  </svg>  
+
+</body>
+</html>
