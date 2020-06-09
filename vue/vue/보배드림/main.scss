@@ -1,0 +1,695 @@
+$location :'../image/';
+
+@mixin ellipsis {
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+@mixin listStyle {
+  content: '';
+  position: absolute;
+  left:0;
+  top:12px;
+  width: 2px;
+  height: 2px;
+  background:#b4b4b4;
+}
+
+.wrap {
+  width: 100%;
+  color:#222;
+  font-size:13px;
+  letter-spacing: -.025em 
+}
+.inner-wrap  {
+  position: relative;
+  width: 1024px;
+  margin:0 auto;
+}
+.font-0 {
+  font-size:0;
+}
+//------------------------------------
+// header
+//------------------------------------
+
+// header-top
+.top-header {
+  position: relative;
+  margin-top:24px;
+}
+.top-header-right {
+  float: right;
+  width: 415px;
+}
+.logo {
+  position: relative;
+  top:-15px;
+  display:inline-block;
+  width: 232px;
+  height: 22px;
+  background:url($location+'header_logo.png') no-repeat;
+}
+.top-nav {
+  li {
+    float:left;
+    a {    
+      padding:0 8px;
+      vertical-align: middle;
+      font-size:11px;
+      letter-spacing: -.05em;
+    }
+    &::before{
+      content:'';
+      position: relative;
+      top:2px;
+      border-left:1px solid #d2caca;
+      
+    }
+    &:first-child {
+      &::before {
+        display:none;
+      }
+    }
+  }
+}
+
+.top-icon {
+  li {
+    float: left;
+    font-size:0;
+    background-image:url($location+'header_icon.png');
+  }
+  &__history{
+    width: 20px;
+    height: 20px;
+    background-position: 0 -20px;
+  }
+  &__user-item {
+    width: 23px;
+    height: 20px;
+    margin-left:15px;
+    background-position: -20px -20px;
+  }
+}
+.top-banner {
+  position: absolute;
+  right: -180px;
+  top: -20px;
+}
+
+//nav
+nav {
+  width: 100%;
+  height: 50px;
+  background-color: #0070bd;
+}
+.main-list {
+  height: 50px;
+  &>li {
+    position: relative;
+    float: left;
+    height: 100%;
+    margin-left:19px;
+    &:first-child {
+      margin:0;
+    }
+  }
+  a {
+    line-height:50px;
+    font-size: 15px;
+    font-weight: bold;
+    color:#fff;
+  }
+}
+.main-icon {
+  position: absolute;
+  right:0;
+  top:0;
+  font-size: 0;
+  li {
+    float: left;
+    height: 50px;
+    border-left: 1px solid #005996;
+    border-right: 1px solid #005996;
+    padding:0 15px;
+    cursor: pointer;
+    &:first-child{
+      position: relative;
+      border-right:0;
+    }
+    &>button {
+      margin-top:15px;
+    }
+  }
+  .btn-search {
+    //position: absolute;
+    top:13px;
+    right:20px;
+    width: 20px;
+    height: 20px;
+    background:url($location+'header_icon.png') -20px 0;
+    
+  }
+
+  .nav-search {
+    display:none;
+    &>input {
+      width: 150px;
+      height: 35px;
+      background:none;
+      border:none;
+      border-bottom:2px solid #fff;
+      color:#FFF;
+    }
+  }
+
+  .btn-menu {
+    width: 20px;
+    height: 20px;
+    padding:0 10px;
+    background:url($location+'header_icon.png') 20px 0;
+    border-right: 1px solid #005996;
+    cursor: pointer;
+  }
+}
+
+.sub-list {
+  display:none;
+  position: absolute;
+  left: 50%; 
+  transform: translateX(-50%);
+  top:50px;
+  padding:10px 0;  
+  background:#fff;
+  border:2px solid #eee;
+  &-2line {
+    width: 222px;
+  }
+  &-3line {
+    width: 342px;
+    li {
+      &:nth-child(n){
+        border-left:1px solid #eee;
+      }
+    }
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    top:-7px;
+    left:50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 5px;
+    background: url($location+'ico_mtop.png') no-repeat -42px -80px;
+  }
+ li {
+  float: left;
+  width: 110px;
+  height: 27px;
+  text-align: center;
+  &:nth-child(2n){
+    border-left:1px solid #eee;
+  }
+ }
+  a {
+    line-height: 27px;
+    letter-spacing: -1px;
+    font-size:13px;
+    font-weight:normal;
+    color:#333;
+  }
+}
+// 전체메뉴
+.all-nav {
+  display:none;
+  height: 410px;
+  background:#fff;
+  border-bottom:1px solid #333;
+  &-main {
+    padding:15px 0 5px;
+    font-weight: bold;    
+    overflow: hidden;
+     > li {
+      float: left;
+      width: 96.1px;
+      padding-left:5px;   
+      border-right:1px solid #ececec;
+      font-size:12px;
+      &:first-child{
+        border-left:1px solid #ececec;
+      }    
+    }
+  }
+  &-sub {
+    height: 360px;   
+    font-weight: normal;
+    li {
+      float:none;
+      margin-top:10px;
+      font-size:11px;
+    }
+  }
+}
+
+// 본문
+.main-content {
+  margin-top:25px;
+  &-inner {
+    &::after{
+      clear: both;
+      display:block;
+      content: '';
+    }
+  }
+  h2 {
+    margin-bottom:10px;
+    font-size:16px;
+    font-weight:bold;
+  }
+  &__left {
+    float: left;
+    width: 735px;
+    //border:1px solid red;
+  }
+  &__right {
+    float: right;
+    width: 274px;
+    padding-left:12px;
+    border-left:1px solid #ddd;
+    box-sizing: border-box;
+    h2 {
+      padding-bottom:10px;
+      border-bottom: 1px solid #ddd;
+      margin:0;
+    }
+  }
+
+  .community-more {
+    //float: right;
+    position: absolute;
+    right:0;
+    top:5px;
+    font-size: 12px;
+    color: #777;
+  }
+
+  &__special {
+    ul {
+      overflow: hidden;
+    }
+    li {
+      float: left;
+      width: 244px;
+      margin:0 0 1px 1px;
+      &:hover {
+        .special-image > img {
+          transform:scale(1.1);  
+        }
+        .special-txt {
+          text-decoration:underline;
+        }
+      }
+    }
+    .special-image {
+      display:inline-block;
+      width: 244px;
+      height: 170px;
+      overflow: hidden;
+      
+      >img {
+        width: 100%;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+    p  {
+      padding-left:10px;
+      font-size:14px;
+      line-height:23px;
+      font-weight:bold;
+    }
+    .main-cyber-ad {
+      margin:15px 0;
+      padding:12px 0;
+      text-align:center; 
+      background-color: #f8f8f9;
+      border:1px solid #ebebeb;
+      p {
+        font-weight:normal;
+        &.cyber-tel {
+          font-size: 16px;
+          padding-top:5px;
+          font-weight:bold;
+        }
+        span {
+          color: #ff5248;
+        }
+        >a {
+          display:inline-block;
+          width: 125px;
+          height: 24px;
+          margin-left:8px;
+          line-height: 24px;
+          text-align:center;
+          color:#fff;
+          background-color: #0070bd;
+          font-size:12px;
+        }
+      }
+    } 
+  }
+
+  //사이버매장 베스트카
+  &__best{
+    margin-top:35px;
+    ul {
+      overflow: hidden;
+    }
+    li {
+      position: relative;
+      float: left;
+      margin:1px 1px 1px 0;
+      > a {
+        display:inline-block;
+        width: 100%;
+        overflow: hidden;
+      }
+      .best-item {
+        transition: all 0.3s ease-in-out;
+      }
+      &:hover {
+        .best-item {
+          transform:scale(1.1);  
+        }
+      }
+    }
+    .best-dim {
+      position: absolute;
+      bottom:0;
+      left:0;
+      width: 100%;
+      height: 74px;
+      padding:0 8px 0 40px;
+      color:#fff;
+      background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(0,0,0,0.75) 60%);
+      transition: all .25s ease-in-out;
+      box-sizing: border-box;
+    }
+    .best-number {
+      position: absolute;
+      left:12px;
+      bottom:15px;
+      font-size: 33px;
+      
+    }
+    .best-title {
+      max-width: 100%;
+      line-height: 74px;
+      font-size:14px;
+      font-weight: bold;
+      @include ellipsis;
+    }
+    .btn__best-more {
+      display:block;
+      width: 100%;
+      height: 46px;
+      text-align:center;
+      line-height:46px;
+      color:#666;
+      font-size:13px;
+      font-weight: bold;
+      background-color:#f3f3f3;
+    }
+  }
+
+  
+  //희귀차
+  &__rare{
+    margin-top:30px;
+
+    .rare-tab {
+      position: relative;
+      > li {
+        float: left;     
+        margin-left:5px;
+        &.on {
+          outline:1px solid #0070bd;
+        }
+        &:first-child {
+          margin:0;
+        }   
+      }
+      .rare-tab-item {
+        display: inline-block;
+        padding:0 8.5px;
+        height: 26px;
+        outline:1px solid #ddd;
+        line-height: 26px;
+        cursor: pointer;
+      }
+      &:after {
+        content: '';
+        clear: both;
+        display:block;
+      }
+    }
+    .rare-item-list {
+      //display:none;
+      position: absolute;
+      left:0;
+      top:35px;
+      >li {
+        position: relative;
+        float: left;
+        width: 243px;
+        height:170px;
+        margin:1px;
+        overflow: hidden;
+        &:nth-child(3n){
+         // border:1px solid red;
+          margin-right:0;
+        }
+        &:hover {
+          img {
+            transform:scale(1.1);  
+          }
+        }
+      }
+      img {
+        width: 100%;
+        transition: all 0.3s ease-in-out;
+      }
+      a {
+        display:inline-block;
+        color:#fff;
+        font-weight: bold;
+        
+      }
+      .item-dim {
+        position: absolute;
+        bottom:0;
+        display:inline-block;
+        width: 100%;
+        padding:20px;
+        box-sizing: border-box;
+        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(0,0,0,0.75) 60%);
+      }
+    }
+  }
+
+  //커뮤니티 베스트
+  &__community {
+    position: relative;
+    height: 360px;
+
+    .community-tab {
+      position: relative;
+      border-bottom: 1px solid #ddd;
+      //overflow: hidden;
+
+      li {
+        float: left;
+        font-size: 12px;
+        font-weight: 600;
+        color: #777;
+        margin-left:15px;
+        padding:10px 0;
+        cursor: pointer;
+        
+        &.on {
+          color: #0070bd;
+          border-bottom:1px solid #0070bd;
+        }
+        &:first-child {
+          margin:0;
+        }
+      }
+
+    }
+    .community-list {
+      //display:none;
+      position: absolute;
+      top:40px;
+      left:0;
+      
+      li {
+        float: none;
+        width: 100%;
+        margin:0;
+        padding:5px;
+        font-size:13px;
+        font-weight: normal;
+        @include ellipsis;
+        &:hover {
+          text-decoration: underline;
+        }
+        &:first-child {
+          font-weight:bold;
+        }
+      }
+      span {
+        margin-right:5px;
+        font-size:16px;
+        font-weight: bold;
+        color: #0070bd;
+      }
+    }
+
+  }
+
+  &__news {
+    position: relative;
+    ul {
+      margin-top:20px;
+    }
+    li {
+      position: relative;
+      padding:6px;
+      @include ellipsis;
+      &::before {
+        @include listStyle;
+      }
+      &:hover {
+        a {
+          text-decoration:underline;
+        }
+      }
+      &:first-child {
+        font-weight: bold;
+        img {
+          float: left;
+        }
+        span {
+          float: left;
+          line-height: 19px;
+          padding: 5px 9px;
+        }
+        overflow: hidden;
+        &::before {
+          display:none;
+        }
+      }
+    }
+  }
+
+  //화제의 블박
+  &__moive {
+    position: relative;
+    margin:20px 0;
+
+    ul {
+      margin-top:15px;
+      li {
+        position: relative;
+        display:inline-block;
+        width: 49%;
+        height: 100px;
+        padding:1px;
+        box-sizing: border-box;
+        &:first-child {
+          width: 100%;
+          height: 160px;
+        }
+         img {
+          width: 100%;
+          height: 100%;
+        }
+        span {
+          position: absolute;
+          bottom:5px;
+          padding: 0 5px;
+          color:#fff;
+          font-weight: bold;
+          @include ellipsis;
+        }
+      }
+    }
+  }
+
+  &__notice {
+    position: relative;
+    li {
+      position: relative;
+      padding:6px;
+      @include ellipsis;
+      &::before {
+        @include listStyle;
+      }
+      &:hover {
+        a {
+          text-decoration:underline;
+        }
+      }
+      &:first-child {
+        span {
+          float: left;
+          line-height: 19px;
+          padding: 5px 9px;
+        }
+        overflow: hidden;
+      }
+    }  
+  }
+
+  //매매가이드
+  &__guide {
+    position: relative;
+    margin-top:20px;
+    ul {
+      margin-top:10px;
+    }
+    li {
+      float: left;
+      width: 33.3%;
+
+      margin-bottom:15px;
+      text-align: center;
+      font-size: 0;
+      
+      a  {
+        display: inline-block;
+        width: 69px;
+        height:80px;
+        background-image:url($location+'btn_main_guide.gif');
+
+      }
+      @for $i from 0 through 8 {
+        &:nth-child(#{$i + 1}) a{
+          background-position: ($i*70 +px) 0;
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    clear: both;
+    padding:15px 0 ;
+    border-top:1px solid #ddd;
+  }
+}
