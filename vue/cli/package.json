@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "vue-meta": "^2.2.1"
-  },
-  "devDependencies": {
-    "prerender-spa-plugin": "^3.4.0"
-  }
-}
