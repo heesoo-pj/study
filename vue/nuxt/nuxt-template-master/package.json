@@ -1,0 +1,48 @@
+{
+  "name": "nuxt-template",
+  "version": "1.0.0",
+  "description": "nuxt-template",
+  "author": "mz-pentacle",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/device": "^1.2.6",
+    "@nuxtjs/gtm": "^2.2.3",
+    "@nuxtjs/proxy": "^1.3.3",
+    "@nuxtjs/style-resources": "^1.0.0",
+    "jquery": "^3.4.1",
+    "lodash": "^4.17.15",
+    "nuxt": "^2.0.0",
+    "nuxt-clipboard2": "^0.2.1",
+    "vue-awesome-swiper": "^3.1.3",
+    "vuejs-daum-postcode": "^1.0.4"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config": "^1.0.1",
+    "@nuxtjs/eslint-module": "^1.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^6.1.0",
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "prettier": "^1.16.4",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.0"
+  },
+  "scripts:": {
+    "browserslist": "browserslist",
+    "dev": "nuxt"
+  },
+  "browserslist": [
+    "last 2 version",
+    "android >= 4.4",
+    "IE >= 11"
+  ]
+}

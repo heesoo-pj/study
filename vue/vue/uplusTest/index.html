@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="uplus" class="uplus">
+        <div class="uplus__inner">
+            <h2><img src="image/title.png" alt=""></h2>
+            <div class="gift__wrap">
+                <ul class="uplus__gift">
+                    <li @click="giftCheck(1)">
+                        <label for="gift_gs"></label>
+                        <input type="radio" name="gift">gs25 5천원 모바일 상품권
+                    </li>
+                    <li @click="giftCheck(2)">
+                        <label for="gift_coffe"></label>
+                        <input type="radio" name="gift">스타벅스 아메리카노 tall
+                    </li>
+                    <li @click="giftCheck(3)">
+                        <label for="gift_emart"></label>
+                        <input type="radio" name="gift">이마트 5천원 모바일 상품권
+                    </li>
+                </ul>
+                <div class="gift__select">
+                    <img :src="gift" alt="">
+                </div>
+            </div>
+
+            <button class="btn__reservation" type="button" @click="popupOpen('personal')"><img src="image/btn-reservation.png" alt=""></button>
+        </div>
+    
+        <!-- dimmed -->
+        <div class="dim"></div>
+        <!-- popup -->
+        <div class="popup pop-personal">
+            <div class="popup__header">
+                <h3>우리집 가계 통신비 꿀팁 상담소</h3>
+            </div>
+            <div class="popup__content">
+                <form action="" id="field" name="field" method="">
+                    <div class="agree__wrap">
+                        <h4>개인정보 수집,이용,제공동의</h4>
+                        <label for="agree-ok">
+                            <input id="agree-ok" type="radio" name="userAgree" value="ok"> 동의함
+                        </label>
+                        <label for="agree-no">
+                            <input id="agree-no" type="radio" name="userAgree" value="no"> 동의하지않음
+                        </label>
+                    </div>
+                    <div class="popup__personal">
+                        <h4>개인정보입력</h4>
+                        <dl>
+                            <dt><label for="name">성명</label></dt>
+                            <dd><input type="text" name="personalName" id="personalName" placeholder="홍길동"></dd>
+                        </dl>
+                        <dl>
+                            <dt><label for="phone">휴대폰번호</label></dt>
+                            <dd><input type="text" id="phone" placeholder=" '-'없이 입력해주세요' "></dd>
+                        </dl>
+                    </div>
+                    <div class="popup__shop">
+                        <h4>방문하실 매장을 선택해주세요</h4>
+                        <label for="">
+                            <input type="text" readonly v-model="shopChoice">
+                        </label>
+                        <button type="button" class="btn__shop" @click="popupOpen('shop')">찾기</button>
+                    </div>
+                    <div><button typy="submit" @click="checkForm">확인</button></div>
+                </form>
+
+            </div>
+            <button type="button" class="btn__close" @click="popupClose('personal')" ><img src="image/btn-close.png" alt="닫기"></button>
+        </div>
+
+        <div class="popup pop-shop">
+            <div class="popup__header">
+                <h3>방문하실 매장을 선택해주세요</h3>
+            </div>
+            <div class="popup__content">
+                <ul class="tab__shop">
+                    <!-- <li @click="giftCheck(1)">간식을 원한다면?</li>
+                    <li @click="giftCheck(2)">커피를 원한다면?</li>
+                    <li @click="giftCheck(3)">장보기를 원한다면?</li> -->
+                    <li class="is__active">간식을 원한다면?</li>
+                    <li>커피를 원한다면?</li>
+                    <li>장보기를 원한다면?</li>
+                </ul>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>매장명</th>
+                            <th>매장주소</th>
+                            <th>지도보기</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="shop in shopList[0]" @click="shopListChoice">
+                            <td>{{ shop.marketName }}</td>
+                            <td>{{ shop.marketAddress }}</td>
+                            <td>
+                                <a :href="shop.marketMapUrl" target="_blank"><img src="image/btn-show-map.png" alt=""></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div><button typy="button">확인</button></div>
+            </div>
+            <button type="button" class="btn__close" @click="popupClose('shop', false)"><img src="image/btn-close.png" alt="닫기"></button>
+        </div>
+        <pre>
+            {{ $data }}
+        </pre>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.5/vue.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

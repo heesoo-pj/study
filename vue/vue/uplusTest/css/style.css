@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.uplus {
+  position: absolute;
+  width: 100%;
+  max-width: 1920px;
+  height: 1080px;
+  background-image: url("../image/bg.jpg");
+}
+
+.uplus__inner {
+  width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.uplus h2 {
+  padding: 70px 0 80px;
+}
+
+.uplus .gift__wrap {
+  position: relative;
+}
+
+.uplus .gift__select {
+  position: absolute;
+  top: -10px;
+  left: -18px;
+}
+
+.uplus__gift {
+  margin-top: 10px;
+  overflow: hidden;
+  background: url("../image/btn.png") no-repeat -18px -10px;
+}
+
+.uplus__gift li {
+  position: relative;
+  float: left;
+  width: 304px;
+  height: 346px;
+  margin: 0 10px;
+  font-size: 0;
+  z-index: 1;
+}
+
+.uplus__gift li input[type="radio"] {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  opacity: .01;
+}
+
+.uplus .btn__reservation {
+  margin-top: 60px;
+}
+
+.dim {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: .7;
+  z-index: 1;
+}
+
+.popup {
+  display: none;
+  position: absolute;
+  left: 50%;
+  margin-left: -320px;
+  width: 640px;
+  background-color: #fff;
+  z-index: 999;
+}
+
+.popup__header {
+  height: 150px;
+  text-align: center;
+  color: #fff;
+  font-size: 30px;
+  background-color: #EA088C;
+}
+
+.popup h3 {
+  line-height: 150px;
+}
+
+.popup .btn__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.popup__content {
+  width: 600px;
+  margin: 40px auto;
+}
+
+.popup__content div {
+  margin-bottom: 20px;
+}
+
+.pop-personal h4 {
+  margin: 10px 0;
+}
+
+.pop-personal dt {
+  display: inline-block;
+  width: 80px;
+}
+
+.pop-personal dd {
+  display: inline-block;
+}
+
+.pop-personal input[type="text"] {
+  width: 450px;
+  background-color: #eee;
+  padding: 10px;
+  height: 10px;
+  border: 1px solid #999;
+}
+
+.pop-shop li {
+  float: left;
+  width: 33.33333%;
+  height: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.pop-shop li.is__active {
+  font-weight: bold;
+  color: #EA088C;
+}
+/*# sourceMappingURL=style.css.map */

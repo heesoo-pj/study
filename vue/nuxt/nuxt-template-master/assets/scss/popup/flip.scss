@@ -1,0 +1,74 @@
+/* -- flip -- */
+@-webkit-keyframes popup__animation--flip-enter {
+  from {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 60deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 60deg);
+  }
+  70% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -15deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -15deg);
+  }
+  to {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+}
+
+@keyframes popup__animation--flip-enter {
+  from {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 60deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 60deg);
+  }
+  70% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -15deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -15deg);
+  }
+  to {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+}
+
+.popup__animation--flip-enter-active {
+  -webkit-animation: popup__animation--flip-enter both ease-in;
+  animation: popup__animation--flip-enter both ease-in;
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+}
+
+@-webkit-keyframes popup__animation--flip-leave {
+  from {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+  30% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -15deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -15deg);
+  }
+  to {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 45deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 45deg);
+  }
+}
+
+@keyframes popup__animation--flip-leave {
+  from {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+  30% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -15deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -15deg);
+  }
+  to {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 45deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 45deg);
+  }
+}
+
+.popup__animation--flip-leave-active {
+  -webkit-animation: popup__animation--flip-leave both;
+  animation: popup__animation--flip-leave both;
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+}
