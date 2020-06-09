@@ -1,0 +1,40 @@
+/* -- slideRight -- */
+@-webkit-keyframes popup__animation--slideRight-enter {
+  from {
+    -webkit-transform: translate3d(150px, 0, 0);
+    transform: translate3d(150px, 0, 0);
+  }
+}
+
+@keyframes popup__animation--slideRight-enter {
+  from {
+    -webkit-transform: translate3d(150px, 0, 0);
+    transform: translate3d(150px, 0, 0);
+  }
+}
+
+.popup__animation--slideRight-enter-active {
+  -webkit-animation: popup__animation--slideRight-enter both
+    cubic-bezier(0.4, 0, 0, 1.5);
+  animation: popup__animation--slideRight-enter both
+    cubic-bezier(0.4, 0, 0, 1.5);
+}
+
+@-webkit-keyframes popup__animation--slideRight-leave {
+  to {
+    -webkit-transform: translate3d(150px, 0, 0);
+    transform: translate3d(150px, 0, 0);
+  }
+}
+
+@keyframes popup__animation--slideRight-leave {
+  to {
+    -webkit-transform: translate3d(150px, 0, 0);
+    transform: translate3d(150px, 0, 0);
+  }
+}
+
+.popup__animation--slideRight-leave-active {
+  -webkit-animation: popup__animation--slideRight-leave both;
+  animation: popup__animation--slideRight-leave both;
+}

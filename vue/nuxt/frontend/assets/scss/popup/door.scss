@@ -1,0 +1,47 @@
+/* -- door -- */
+@-webkit-keyframes popup__animation--door-enter {
+  from {
+    -webkit-transform: scale3d(0, 1, 1);
+    transform: scale3d(0, 1, 1);
+  }
+}
+
+@keyframes popup__animation--door-enter {
+  from {
+    -webkit-transform: scale3d(0, 1, 1);
+    transform: scale3d(0, 1, 1);
+  }
+}
+
+.popup__animation--door-enter-active {
+  -webkit-animation: popup__animation--door-enter both
+    cubic-bezier(0.4, 0, 0, 1.5);
+  animation: popup__animation--door-enter both cubic-bezier(0.4, 0, 0, 1.5);
+}
+
+@-webkit-keyframes popup__animation--door-leave {
+  60% {
+    -webkit-transform: scale3d(0.01, 1, 1);
+    transform: scale3d(0.01, 1, 1);
+  }
+  to {
+    -webkit-transform: scale3d(0, 1, 0.1);
+    transform: scale3d(0, 1, 0.1);
+  }
+}
+
+@keyframes popup__animation--door-leave {
+  60% {
+    -webkit-transform: scale3d(0.01, 1, 1);
+    transform: scale3d(0.01, 1, 1);
+  }
+  to {
+    -webkit-transform: scale3d(0, 1, 0.1);
+    transform: scale3d(0, 1, 0.1);
+  }
+}
+
+.popup__animation--door-leave-active {
+  -webkit-animation: popup__animation--door-leave both;
+  animation: popup__animation--door-leave both;
+}

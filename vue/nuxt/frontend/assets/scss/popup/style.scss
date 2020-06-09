@@ -1,0 +1,74 @@
+.popup {
+  display: flex;
+  justify-content: center;
+  &__mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    // height: 100%;
+    min-height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 100;
+  }
+
+  &__dialog {
+    position: absolute;
+    top: 0;
+    // left: 50%;
+    width: 100%;
+    margin: 0 auto;
+    // background: #fff;
+    // transform: translateX(-50%);
+    transform-origin: center center;
+    // font-size: 0;
+    z-index: 110;
+  }
+  &Btn {
+    &__close {
+      position: absolute;
+      cursor: pointer;
+      // top: 16px;
+      // right: 16px;
+      // width: 16px;
+      // height: 16px;
+      font-size: 0;
+      z-index: 110;
+    }
+  }
+}
+
+/* -- fade -- */
+@-webkit-keyframes popup__animation--fade-enter {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes popup__animation--fade-enter {
+  from {
+    opacity: 0;
+  }
+}
+
+.popup__animation--fade-enter-active {
+  -webkit-animation: popup__animation--fade-enter both ease-in;
+  animation: popup__animation--fade-enter both ease-in;
+}
+
+@-webkit-keyframes popup__animation--fade-leave {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes popup__animation--fade-leave {
+  to {
+    opacity: 0;
+  }
+}
+
+.popup__animation--fade-leave-active {
+  -webkit-animation: popup__animation--fade-leave both ease-out;
+  animation: popup__animation--fade-leave both ease-out;
+}

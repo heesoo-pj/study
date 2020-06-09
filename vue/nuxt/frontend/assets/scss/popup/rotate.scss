@@ -1,0 +1,42 @@
+/* -- rotate -- */
+@-webkit-keyframes popup__animation--rotate-enter {
+  from {
+    -webkit-transform: rotate3d(0, 0, 1, -180deg) scale3d(0.3, 0.3, 0.3);
+    transform: rotate3d(0, 0, 1, -180deg) scale3d(0.3, 0.3, 0.3);
+  }
+}
+
+@keyframes popup__animation--rotate-enter {
+  from {
+    -webkit-transform: rotate3d(0, 0, 1, -180deg) scale3d(0.3, 0.3, 0.3);
+    transform: rotate3d(0, 0, 1, -180deg) scale3d(0.3, 0.3, 0.3);
+  }
+}
+
+.popup__animation--rotate-enter-active {
+  -webkit-animation: popup__animation--rotate-enter both;
+  animation: popup__animation--rotate-enter both;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+}
+
+@-webkit-keyframes popup__animation--rotate-leave {
+  to {
+    -webkit-transform: rotate3d(0, 0, 1, 180deg) scale3d(0.3, 0.3, 0.3);
+    transform: rotate3d(0, 0, 1, 180deg) scale3d(0.3, 0.3, 0.3);
+  }
+}
+
+@keyframes popup__animation--rotate-leave {
+  to {
+    -webkit-transform: rotate3d(0, 0, 1, 180deg) scale3d(0.3, 0.3, 0.3);
+    transform: rotate3d(0, 0, 1, 180deg) scale3d(0.3, 0.3, 0.3);
+  }
+}
+
+.popup__animation--rotate-leave-active {
+  -webkit-animation: popup__animation--rotate-leave both;
+  animation: popup__animation--rotate-leave both;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+}

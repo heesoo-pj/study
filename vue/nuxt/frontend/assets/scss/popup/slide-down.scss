@@ -1,0 +1,39 @@
+/* -- slideDown -- */
+@-webkit-keyframes popup__animation--slideDown-enter {
+  from {
+    -webkit-transform: translate3d(0, -100px, 0);
+    transform: translate3d(0, -100px, 0);
+  }
+}
+
+@keyframes popup__animation--slideDown-enter {
+  from {
+    -webkit-transform: translate3d(0, -100px, 0);
+    transform: translate3d(0, -100px, 0);
+  }
+}
+
+.popup__animation--slideDown-enter-active {
+  -webkit-animation: popup__animation--slideDown-enter both
+    cubic-bezier(0.4, 0, 0, 1.5);
+  animation: popup__animation--slideDown-enter both cubic-bezier(0.4, 0, 0, 1.5);
+}
+
+@-webkit-keyframes popup__animation--slideDown-leave {
+  to {
+    -webkit-transform: translate3d(0, -100px, 0);
+    transform: translate3d(0, -100px, 0);
+  }
+}
+
+@keyframes popup__animation--slideDown-leave {
+  to {
+    -webkit-transform: translate3d(0, -100px, 0);
+    transform: translate3d(0, -100px, 0);
+  }
+}
+
+.popup__animation--slideDown-leave-active {
+  -webkit-animation: popup__animation--slideDown-leave both;
+  animation: popup__animation--slideDown-leave both;
+}
