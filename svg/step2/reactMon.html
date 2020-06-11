@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+
+@keyframes eyeBallAni {
+  0%{
+    transform: translateX(-20px);
+  }
+  100%{
+    transform: translateX(20px);
+  }
+}
+@keyframes eyeAni {
+  80%{
+    transform: scaleY(1);
+  }
+  90%{
+    transform: scaleY(0.01);
+  }
+  100%{
+    transform: scaleY(0.01);
+  }
+}
+
+@keyframes lineAni {
+  0%{
+    stroke-dashoffset: -713;
+  }
+  50%{
+    stroke-dashoffset: 0;
+  }
+  100%{
+    stroke-dashoffset: -713;
+  }
+}
+
+@keyframes rotate1Ani {
+  100%{
+    transform: rotate3d(0, 1, 0, 360deg);;
+  }
+}
+@keyframes rotate2Ani {
+  100%{
+    transform: rotate3d(2, 1.22, 0, 360deg);;
+  }
+}
+@keyframes rotate3Ani {
+  100%{
+    transform: rotate3d(-2, 1.22, 0, 360deg);;
+  }
+}
+
+
+  .cls-1{
+    fill:none;stroke:#61dafb;stroke-miterlimit:10;stroke-width:15px;
+    stroke-dasharray: 713;
+    /* 초기위치 */
+    stroke-dashoffset: -713; 
+    animation: lineAni 0.5s infinite ease-in;
+    opacity: 1;
+  }
+  .cls-1-2{
+    animation-delay: 0.1s;
+  }
+  .cls-1-3{
+    animation-delay: 0.2s;
+  }
+
+  .cls-2{
+    fill:none;stroke:#61dafb;stroke-miterlimit:10;stroke-width:15px;
+    opacity: 0.3;
+  }
+
+  .reactMon{
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    width:200px;
+    height:200px;
+    margin:auto;
+  }
+  .eye-ball{
+   
+    animation: 2s eyeBallAni linear infinite alternate;
+  }
+  .eye{
+    transform-origin: center center;
+    animation: 1s eyeAni linear infinite alternate;
+  }
+  .line{
+    transform-origin: center center;
+  }
+  .line1{
+    animation: 5s rotate1Ani linear infinite alternate;
+  }
+  .line2{
+    animation: 5s rotate2Ani linear infinite alternate;
+  }
+  .line3{
+    animation: 5s rotate3Ani linear infinite alternate;
+  }
+
+</style>
+<body>
+  <svg class="reactMon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 327 291.84">
+
+    <defs>
+      <mask id="eyeMask">
+        <!-- 눈 흰자 -->
+        <!-- 같이 깜빡거리게 eye class 적용 -->
+        <ellipse class="eye" cx="163.5" cy="145.92" rx="28" ry="14" fill="#fff"/>
+      </mask>
+    </defs>
+
+
+    <g class="line line1">
+      <ellipse class="cls-1 cls-1-1" cx="163.5" cy="145.92" rx="156" ry="60"/>
+      <ellipse class="cls-2" cx="163.5" cy="145.92" rx="156" ry="60"/>
+      
+      <ellipse class="cls-1 cls-1-3" cx="384" cy="384" rx="60" ry="156" transform="rotate(-30 -170.504 676.413)"/>
+    </g>
+
+    <g class="line line2">
+      <ellipse class="cls-1 cls-1-2" cx="384" cy="384" rx="156" ry="60" transform="matrix(.5 -.87 .87 .5 -361.05 286.47)"/>
+      <ellipse class="cls-2" cx="384" cy="384" rx="156" ry="60" transform="matrix(.5 -.87 .87 .5 -361.05 286.47)"/>
+    </g>
+
+    <g class="line line3">
+      <ellipse class="cls-2" cx="163.5" cy="145.92" rx="156" ry="60"/>
+      <ellipse class="cls-2" cx="384" cy="384" rx="60" ry="156" transform="rotate(-30 -170.504 676.413)"/>
+    </g>
+    <circle cx="163.5" cy="145.92" r="31" fill="#61dafb"/>
+
+    <!-- 눈 흰자 -->
+    <ellipse class="eye" cx="163.5" cy="145.92" rx="28" ry="14" fill="#fff"/>
+    <!-- 눈동자 -->
+    <g mask="url('#eyeMask')">
+      <circle class="eye-ball" cx="163.5" cy="145.92" r="13" fill="#333"/>
+    </g>
+   
+  </svg> 
+  <script>
+    //const lineLength = document.querySelector('.cls-1').getTotalLength();
+    //console.log(lineLength)
+
+    (()=>{
+      const reactMon = document.querySelector('.reactMon');
+      const targetPos = { x:0, y:0 } //마우스 위치
+      const reactMonInfo = { x:0, y:0 } //캐릭터 위치
+      const easeValue = 0.05; //가속도 
+
+      window.addEventListener('mousemove',(e)=>{
+        targetPos.x = e.clientX - innerWidth * 0.5;
+        targetPos.y = e.clientY - innerHeight * 0.5;
+      })
+
+      // reactMon의 현재 위치값
+      let dx;
+      let dy;
+
+      function render(){
+        dx = targetPos.x - reactMonInfo.x; //목표위치와 현재위치의 거리
+        dy = targetPos.y - reactMonInfo.y;
+
+        reactMonInfo.x = reactMonInfo.x + dx * easeValue;
+        reactMonInfo.y = reactMonInfo.y + dy * easeValue;
+
+        reactMon.style.transform = `translate3d(${reactMonInfo.x}px, ${reactMonInfo.y}px, 0px)`;
+        requestAnimationFrame(render) //반복하면서 위치갱신
+      }
+      
+      render();
+    })();
+
+  </script> 
+</body>
+</html>

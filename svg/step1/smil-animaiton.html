@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{padding:0;margin:0;}
+    .svg {
+
+    }
+  </style>
+</head>
+<body>
+  <svg class="svg" viewBox="0 0 1000 1000">
+    <rect x="10" y="10" width="20%" height="20%" class="rect">
+      <!-- 
+        attributeName 바꿀 속성 / dur 시간 / to~from / repeatCount 무한반복가능 / 
+        fill:freeze 이동상태에서 정지 
+        begin:delay설정 indefinite(시작x)
+        values : 시작,중간,끝 값 설정
+        ketTimes: 1초동안 움직일 시간값
+      -->
+
+
+      <!-- <animate
+      class="rectAni"
+      attributeName="x" 
+      to="700"
+      dur="1"
+      repeatCount="1"
+      fill="freeze"
+      begin="indefinite"
+      /> -->
+
+      <animate
+      class="rectAni"
+      attributeName="x" 
+      dur="1"
+      repeatCount="indefinite"
+      fill="freeze"
+      values="0; 700; 0;"
+      ketTimes="0; 0.5; 1"
+      />
+    </rect>
+
+  </svg>
+  <script>
+    const rect = document.querySelector('.rect'),
+      rectAni = document.querySelector('.rectAni');
+      
+      // animate 옵션 begin="indefinite"로 설정해놔야한다.
+      rect.addEventListener('click',()=>{
+        rectAni.beginElement(); //애니메이션에 함수를 준다.
+      })
+
+  </script>
+</body>
+</html>

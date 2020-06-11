@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @keyframes dashAni {
+      from {
+        stroke-dashoffset: 3781;
+      }
+    }
+    circle { 
+      stroke:#000; 
+      stroke-width: 5; 
+      fill:transparent; 
+      stroke-linecap: round;
+      /* dasharray 과 dashoffset 이 같으면 없어짐. */
+      stroke-dasharray: 700; 
+      stroke-dashoffset: 1;
+      animation: dashAni 3s;
+      }
+      .line{
+        stroke-dasharray: 3781; 
+      stroke-dashoffset: 1;
+      animation: dashAni 3s;
+      }
+  </style>
+</head>
+<body>
+  <svg width="800" height="500" viewBox="0 0 1500 500">
+    <!-- <circle cx="400" cy="250" r="100" /> -->
+
+    <path class="line" fill="none" stroke="#000" stroke-width="2" d="M20.2 679.7c210.3-19.1 398.9-219.6 236.5-257.5-170.5-16.8-132.5 146.2-6.8 184.7 141.6 55.7 242.3-9.9 215.3-89.3-43.7-94-330-292-85-347.3 135.5-18.7 251 54.7 302.9 141.5 50.2 85 25.5 183.8 136.6 248.6C1000 627 1037.7 427 1039 395.7c20.3-196.6-133.8-218-199.5-170s-11.3 138.5 107 114S1126.7 147.6 1092.6 67c-2.4-12.2-1.4-23.1 9.2-31.8 100.8-49.4 112.2 198.4 239-23.8"/> 
+  </svg>
+
+  <script>
+    // stroke-dashoffset을 알아올 수 있다.
+    console.log(document.querySelector('.line').getTotalLength())
+  </script>
+</body>
+</html>
