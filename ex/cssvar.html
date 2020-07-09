@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+    :root{
+      --textSize:14px;
+      --mainColor:#ffc600;
+      --blur:0px;
+    }
+    em {
+    color: var(--mainColor);
+    font-size: var(--textSize);
+    font-style: normal;
+    }
+    .img {
+        display: block;
+        width: 100%;
+        filter: blur(var(--blur));
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <h1>Update CSS Variables With <em>JS</em></h1>
+    <div class="option">
+      <strong>Option</strong>
+      <div class="block">
+        <label for="textSize" class="opt-title">Font size</label>
+        <input type="range" name="textSize" min="11" max="18" value="14" data-sizing="px" />
+      </div>
+      <div class="block">
+        <label for="mainColor" class="opt-title">Main Color</label>
+        <input type="color" name="mainColor" value="#ffc600">
+      </div>
+      <div class="block">
+        <label for="blur" class="opt-title">Background Blur</label>
+        <input type="range" name="blur" min="0" max="10" value="0" data-sizing="px" />
+      </div>
+    </div>
+
+    <div class="content">
+      <article class="article-1">
+        <img src="http://unsplash.it/960?image=183" alt="image" class="img">
+      </article>
+    </div>
+  </div>
+  <script>
+    const inputs = document.querySelectorAll('.option input');
+    const handleUpdata = function(){
+      
+      const suffix = this.dataset.sizing || '';
+      console.log(`--${this.name}`, this.value + suffix)
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+    }
+
+    inputs.forEach((input)=>{
+      input.addEventListener('change',handleUpdata);
+      input.addEventListener('mousemove',handleUpdata)
+    })
+  </script>
+</body>
+
+
+
+</html>

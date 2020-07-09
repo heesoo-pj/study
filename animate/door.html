@@ -58,22 +58,23 @@
 <script>
 (function(){
   const door = document.querySelectorAll('.door')
+  let currentItem;
+
   function onToggle(){
 
     if(this.classList.contains('on')){
-      this.classList.remove('on')
+      this.classList.remove('on');
     } else {
       for(let i =0; i<door.length; i++){
-      door[i].classList.remove('on')
+      door[i].classList.remove('on');
     }
-    this.classList.add('on')
+    this.classList.add('on');
     }
 
   }
   
   for(let i =0; i<door.length; i++){
     door[i].addEventListener('click',onToggle);
-
   }
 })();
 

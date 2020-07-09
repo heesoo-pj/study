@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>hello~</h1>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script>
+  $.fn.colorchanger = function(options) {
+      $.fn.colorchanger.defaults = {color: "orange", backcolor: "green"};
+      var settings = $.extend({}, $.fn.colorchanger.defaults, options);
+      this.css({"color": settings.color, "background-color": settings.backcolor});
+  }
+  //$("h1").colorchanger({color : "white", backcolor : "black"});
+
+  $.sum = function(array) { 
+    var total = 0; 
+    $.each(array, function(idx, value){ 
+      value = $.trim(value); 
+      value = parseFloat(value) || 0; total += value; 
+    }) 
+      return total; 
+  }
+  // $.sum([20,30,15,45]);
+
+
+  </script>
+</body>
+</html>

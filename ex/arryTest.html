@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+<script>
+
+const people = [
+{ first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
+{ first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
+{ first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 },
+{ first: 'Marie', last: 'Curie', year: 1867, passed: 1934 },
+{ first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 },
+{ first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543 },
+{ first: 'Max', last: 'Planck', year: 1858, passed: 1947 },
+{ first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 },
+{ first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 },
+{ first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905 },
+{ first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
+{ first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 },
+{ first: 'Sherlock', last: 'Holmes', year: 1854, passed: 1957 },
+{ first: 'John ', last: 'Watson', year: 1852, passed: 1929 },
+];
+
+//50년대생만 추출
+const fiften = people.filter((person)=>{
+  if( person.year < 1600 && person.year > 1499 ){
+    return true;
+  }
+})
+//console.log(fiften)
+
+//성 + 이름 더한 배열 생성
+const fullName = people.map(person=>
+  person.first + ' ' + person.last
+)
+
+
+//console.log(fullName.sort())
+
+
+
+
+
+</script>
+</body>
+</html>

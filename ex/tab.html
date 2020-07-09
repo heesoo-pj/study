@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/tab.min.css">
+</head>
+
+<body>
+  <ul class="tab1">
+    <li class="on">외국어 자막공연</li>
+    <li>대학로 공연 뮤지컬</li>
+    <li>대학로 공연 연극</li>
+    <li>서울시내 주요 공연</li>
+  </ul>
+
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script>
+    (function ($) {
+      $('ul li').click(function () {
+        var getCurrentNum = $(this).index() + 1;
+        $('li').removeClass('on');
+        $(this).addClass('on');
+        $(this).parent('ul').removeClass().addClass('tab' + getCurrentNum);
+      })
+    })(jQuery);
+
+  </script>
+</body>
+
+</html>
+
+

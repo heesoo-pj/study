@@ -1,0 +1,227 @@
+*{ padding:0; margin:0; }
+li { list-style: none;; }
+ul {
+  width: 924px;
+  height: 100px;
+  margin:50px auto;
+  font-size:0;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+
+$colorList : null;
+
+@for $i from 1 through 4 {
+  &.tab#{$i} {
+    @if $i == 1 {
+      $colorList : ( 1:palevioletred,2:orange,3:yellowgreen,4:skyblue )
+    } @else if $i == 2 {
+      $colorList : ( 1:orange,2:palevioletred,3:yellowgreen,4:skyblue )
+    } @else if $i == 3 {
+      $colorList :( 1:orange,2:yellowgreen,3:palevioletred,4:skyblue )
+    } @else {
+      $colorList : ( 1:orange,2:yellowgreen,3:skyblue,4:palevioletred )
+    }
+
+    @each $key, $color in $colorList {
+     li:nth-child(#{$key}){
+       background-color:$color;
+       @if ($i == $key ) {
+         &::before { 
+           display:none;
+          }
+          &::after { 
+            display:none;
+           }
+       } 
+       @else if ($i > $key) {
+         &::after{
+           background-color:$color;
+         }
+       }
+        &::before{
+          background-color:$color;
+      }
+     }
+    }
+
+  }
+}
+
+
+  // &.tab1 {
+  //   li {
+  //     &:nth-child(1){
+  //       background-color:palevioletred;
+  //     }
+  //     &:nth-child(2){
+  //       background-color:orange;
+  //       &::before{
+  //         background:orange;
+  //       }
+  //     }
+  //     &:nth-child(3){
+  //       background-color:yellowgreen;
+  //       &::before{
+  //         background:yellowgreen;
+  //       }
+  //     }
+  //     &:nth-child(4){
+  //       background-color:skyblue;
+  //       &::before{
+  //         background:skyblue;
+  //       }
+  //     }
+  //   }
+  // }
+  // &.tab2{
+  //   li {
+  //     &:nth-child(1){
+  //       background-color:orange;
+  //       &::before{
+  //         background:orange;
+  //       }
+  //       &::after{
+  //         background:orange;
+  //       }
+  //     }
+  //     &:nth-child(2){
+  //       background-color:palevioletred;
+  //       &::before{
+  //         display:none;
+  //       }
+  //     }
+  //     &:nth-child(3){
+  //       background-color:yellowgreen;
+  //       &::before{
+  //         background:yellowgreen;
+  //       }
+  //     }
+  //     &:nth-child(4){
+  //       background-color:skyblue;
+  //       &::before{
+  //         background:skyblue;
+  //       }
+  //     }
+  //   }
+  // }
+  // &.tab3 {
+  //   li {
+  //     &:nth-child(1){
+  //       background-color:orange;
+  //       &::before{
+  //         background:orange;
+  //       }
+  //     }
+  //     &:nth-child(2){
+  //       background-color:yellowgreen;
+  //       &::after{
+  //         background:yellowgreen;
+  //       }
+  //       &::before{
+  //         background:yellowgreen;
+  //       }
+  //     }
+  //     &:nth-child(3){
+  //       background-color:palevioletred;
+  //       &::before{
+  //         display:none;
+  //       }
+  //     }
+  //     &:nth-child(4){
+  //       background-color:skyblue;
+  //       &::before{
+  //         background:skyblue;
+  //       }
+  //     }
+  //   }
+  // }
+  // &.tab4 {
+  //   li {
+  //     &:nth-child(1){
+  //       background-color:orange;
+  //       &::before{
+  //         background:orange;
+  //       }
+  //     }
+  //     &:nth-child(2){
+  //       background-color:yellowgreen;
+  //       &::before{
+  //         background:yellowgreen;
+  //       }
+  //     }
+  //     &:nth-child(3){
+  //       background-color:skyblue;
+  //       &::before{
+  //         background:skyblue;
+  //       }
+  //       &::after{
+  //         background:skyblue;
+  //       }
+  //     }
+  //     &:nth-child(4){
+  //       background-color:palevioletred;
+  //       &::before{
+  //         display:none;
+  //       }
+  //     }
+  //   }
+  // }
+}
+
+li {
+  position: relative;
+  display:inline-block;
+  width: 231px;
+  height: 100%;
+  font-size:10px;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+  background-repeat: no-repeat;
+  background-position-y: bottom;
+  &::before{
+    content:'';
+    position: absolute;
+    width: 22px;
+    height: 12px;
+    left:-6px;
+    z-index: -1;
+  }
+  &::after{
+    content:'';
+    position: absolute;
+    width: 22px;
+    height: 12px;
+    right:-6px;
+    z-index: -1;
+  }
+
+  &:first-child{
+    &::before{
+      display:none;
+    }
+  }
+
+  @for $i from 1 through 4 {
+    &:nth-child(#{$i}){
+      background-image: url('../img/tab'+$i+'.png');
+    }
+  }
+  &.on {
+    background-position-y: top;
+    box-shadow: 0 0 10px rgba(61, 15, 0, 0.6);
+    z-index: 10;
+  }
+
+}
+
+
+
+h1 {
+  color: tomato
+}
+.stranger {
+  color: orange
+}
+.name {
+  color: cornflowerblue
+}

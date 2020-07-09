@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{ padding:0; margin:0; }
+    ul {position: relative; }
+    li { display:inline-block; }
+    li > div { display:none; position:absolute; top:30px; left:0; }
+    li.on > div { display:block; }
+  </style>
+</head>
+<body>
+  <ul>
+    <li class="on" data-tab="1">
+      <button>111</button>
+      <div>
+        content1
+      </div>
+    </li>
+    <li data-tab="2">
+      <button>222</button>
+      <div>
+        content2
+      </div>
+    </li>
+    <li data-tab="3">
+      <button>333</button>
+      <div>
+        content3
+      </div>
+    </li>
+    <li data-tab="4">
+      <button>444</button>
+      <div>
+        content4
+      </div>
+    </li>
+  </ul>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+
+var textData
+
+  $(function(){
+    $('li').click(function(){
+      var data = $(this).data('tab')
+      console.log(data)
+      
+    })
+  })
+</script>
+</body>
+</html>
