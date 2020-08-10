@@ -1,0 +1,98 @@
+<p>남은시간 : <span id="timer"></span></p>
+<script>
+  // function solution(m, day) {
+  //   var days;
+  //   var week = ['FRI', 'SAT', 'SUN', 'MON', 'TUE', 'WED', 'THU'];
+  //   var monthDay = 0;
+  //   var allDays = 0;
+
+
+  //   if (m != 1) {
+  //     if (m === 3 || m === 5 || m === 7 || m === 8 || m === 10 || m === 12) {
+  //       monthDay += m * 31
+  //     } else if (m === 4 || m === 6 || m === 9 || m === 11) {
+  //       monthDay += m * 30
+  //     } else {
+  //       monthDay += m * 29
+  //     }
+  //   } else {
+  //     monthDay = -1
+  //   }
+
+  //   allDays += monthDay + day
+  //   days = week[allDays % 7]
+  //   //1월 1일 금요일
+  //   // 5월 24일 화요일
+  //   console.log('monthDay //' + monthDay)
+  //   console.log('allDays //' + allDays)
+  //   console.log('days //' + days)
+  //   return days;
+  // }
+
+  ///---------------------------------------------
+
+//   function solution(s) {
+//     var answer = '';
+//     var remainder = s.length%2; 
+//     var n = s.length/2; 
+
+//     if(remainder){ // 홀수
+//       answer = s[n-0.5];
+//     } else {
+//       answer += s[n-1];
+//       answer += s[n]; 
+//     }
+//     return answer;
+// }
+
+///---------------------------------------------
+// function solution(a, b) {
+//   var answer = 0;
+//   var sNum = Math.min(a, b);
+//   var lNum = Math.max(a, b);
+
+//     for(var i=sNum; i<=lNum; i++){
+//       answer+=i;
+//     }
+
+//     return answer;
+// }
+
+
+
+// function average(arr) {
+//     var addValue = 0;
+//     for(var i=0; i<arr.length; i++){
+//       addValue += arr[i];
+//     }
+//     return addValue / arr.length
+// }
+
+
+
+ 
+function eventTimer() {
+  var nowDate = new Date().getTime();
+  var dDate = new Date('2020-07-15 14:38:00').getTime(); // 종료날짜
+  var RemainDate = dDate - nowDate;
+
+  var day = Math.floor(RemainDate / (1000 * 60 * 60 * 24)) * -1;
+  var hours = Math.floor((RemainDate % (1000 * 60 * 60 * 24)) / (1000*60*60));
+  var miniutes = Math.floor((RemainDate % (1000 * 60 * 60)) / (1000*60));
+  var seconds = Math.floor((RemainDate % (1000 * 60)) / 1000);
+  
+  m = day+'일'+ hours + "시간" +  miniutes + "분" + seconds+ "초" ; 
+  
+  document.all.timer.innerHTML = m;   // div 영역에 보여줌 
+ // console.log(RemainDate)
+  
+ if (RemainDate < 1000) {  // 시간이 종료
+  clearInterval(tid);   // 타이머 해제
+ }else{
+    RemainDate = RemainDate - 1000; // 남은시간 -1초
+  }
+}
+
+tid=setInterval('eventTimer()',1000);
+
+</script>

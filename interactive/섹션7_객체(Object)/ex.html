@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .card {
+      display: inline-flex;
+      width: 100px;
+      height: 150px;
+      border: 1px solid #000;
+      border-radius: 5px;
+      font-size: 25px;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrap"></div>
+
+  <script>
+    function Card(color, number) {
+      this.color = color,
+        this.number = number,
+        this.init()
+    }
+    Card.prototype = {
+      construtor: Card,
+      init: function () {
+        const wrap = document.querySelector('.wrap');
+        const card = document.createElement('div')
+        card.innerHTML = this.number;
+        card.style.color = this.color;
+        card.classList.add('card');
+        wrap.appendChild(card)
+      }
+    }
+    const card1 = new Card('red', '7');
+    const card2 = new Card('blue', '10');
+
+
+
+
+    function Library(arry) {
+      this.find = function (txt) {
+        if(arry.indexOf(txt) > -1){
+          return txt
+        } else {
+          return '에러'
+        }
+      }
+      this.add = function(txt){
+        arry.push(txt);
+      }
+      this.list = function(){
+        return arry
+      }
+      this.delete = function(txt){
+        let idx = arry.indexOf(txt);
+        if (idx > -1) arry.splice(idx,1);
+        return arryx;
+      }
+    }
+
+    const bookList = ['자바스크립트완전정복', '파이썬', 'java의 정석'];
+    const bookStore = new Library(bookList);
+
+
+  </script>
+</body>
+
+</html>

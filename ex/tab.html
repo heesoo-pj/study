@@ -21,8 +21,7 @@
     (function ($) {
       $('ul li').click(function () {
         var getCurrentNum = $(this).index() + 1;
-        $('li').removeClass('on');
-        $(this).addClass('on');
+        $(this).addClass('on').siblings().removeClass('on');
         $(this).parent('ul').removeClass().addClass('tab' + getCurrentNum);
       })
     })(jQuery);

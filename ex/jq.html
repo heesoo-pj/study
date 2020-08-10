@@ -45,9 +45,10 @@
 
 var textData
 
-  $(function(){
+$(function(){
     $('li').click(function(){
-      var data = $(this).data('tab')
+      var data = $(this).data('tab');
+      $(this).addClass('on').siblings().removeClass('on')
       console.log(data)
       
     })

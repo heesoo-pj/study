@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    // const person = {};
+
+    // //속성, property
+    // person.name = "미미";
+    // person.age = 10;
+    // //값이 함수인 얘들은 method라고 부름.
+    // person.introduce=function(){
+    //   console.log("안녕하세요. 저는 미미에용");
+    // };
+
+    // person.introduce();
+
+
+    // const person={
+    //   name:'미미',
+    //   age:10,
+    //   introduce:function(){
+    //     console.log("안녕하세요. 저는 "+ this.name +"에용. "+ this.age +"살이에요");
+    //   }
+    // };
+
+    //생성자 함수
+    function Person(name,age){ //생성자 형태는 카멜로!
+      this.name = name;
+      this.age = age;
+    }
+
+    Person.prototype.introduce = function(){
+      console.log("안녕하세요. 저는 "+ name +"에용. "+ age +"살이에요");
+    }
+
+    // 인스턴스 instance
+    const person1 = new Person('미미', 10);
+    const person2 = new Person('쥬쥬', 8)
+
+    person1.introduce();
+
+
+  </script>
+</body>
+</html>
