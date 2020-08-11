@@ -88,7 +88,17 @@
         });
     });
 
-
+    var lastScroll = 0;
+    window.addEventListener('scroll',function(){
+        console.log(pageYOffset)
+        if(lastScroll<pageYOffset){
+            console.log('밑으로')
+        } else {
+            console.log('위로')
+        }
+        lastScroll = pageYOffset;
+    })
+    
 
 
 

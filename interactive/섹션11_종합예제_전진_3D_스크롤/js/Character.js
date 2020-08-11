@@ -73,7 +73,7 @@ Character.prototype = {
         });
 
         window.addEventListener('keydown', function (e) {
-            if (self.runningState) return;
+           if (self.runningState) return; //true라면 밑에 코드 실행x
 
             if (e.keyCode == 37) {
                 // 왼쪽
