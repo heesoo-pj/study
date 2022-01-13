@@ -90,6 +90,7 @@ a {
 // section
 .scroll-section {
 	padding-top:50vh;
+
 	.main-message{
 		display:flex;
 		align-items: center;
@@ -98,10 +99,12 @@ a {
 		font-size:2.5rem;
 		text-align: center;
 		opacity: 0;
+
 		p {
 			font-weight: bold;
 			line-height: 1.2;
 		}
+
 		small {
 			display:block;
 			margin-bottom:1.5em;
@@ -133,6 +136,7 @@ a {
 		font-size:4rem;
 		text-align: center;
 	}
+
 	small {
 		font-size:1.5vw;
 	}
@@ -145,6 +149,7 @@ a {
 		margin:0 auto;
 		font-size:1.2rem;//16.4px
 		color:#888;
+
 		>strong {
 			float: left;
 			margin-right:0.2em; //8.4px
@@ -158,10 +163,12 @@ a {
 	.main-message{
 		font-size:3.5rem;
 	}
+
 	.desc-message{
 		width: 50%;
 		font-weight: bold;
 	}
+
 	.pin{
 		width: 1px;
 		height: 100px;
@@ -180,6 +187,7 @@ a {
 			color:rgb(29, 29, 31);
 		}
 	}
+	
 	.canvas-caption{
 		max-width: 1000px;
 		margin:0 auto;
